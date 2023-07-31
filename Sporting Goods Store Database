@@ -1,0 +1,37 @@
+--Create a Sports Goods Store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, aisle INTEGER,  price INTEGER, category TEXT); 
+
+INSERT INTO store VALUES 
+(1, "batting helmet", 7, 50, "baseball"), 
+(2, "headband", 5, 7, "tennis"),
+(3, "baseballs", 2, 20, "baseball"),
+(4, "bat", 7, 100, "baseball"),
+(5, "compression socks", 3, 18, "running"),
+(6, "dumbells", 4, 80, "group fitness"),
+(7, "running shoes", 3, 120, "running"),
+(8, "tennis racquet", 5, 180, "tennis"),
+(9, "baseball glove", 6, 70, "baseball"),
+(10, "volleyball net", 10, 130, "volleyball"),
+(11, "tennis balls", 6, 16, "tennis"),
+(12, "hockey pucks", 10, 20, "hockey"),
+(13, "pickleballs", 12, 30, "pickelball"),
+(14, "soccer goalie gloves", 9, 45, "soccer"), 
+(15, "NBA official basketball",12, 50, "basketball");
+
+--display tennis items sorted by aisle and price.
+SELECT * FROM store
+WHERE category = "tennis"
+ORDER BY aisle asc, price desc; 
+
+--what is the average price of items in the baseball category?
+SELECT AVG(price) 
+FROM store 
+WHERE category = "baseball";
+
+--what are the Top 10 most expensive items in the store? 
+SELECT item, price, category
+FROM store
+ORDER BY price desc
+LIMIT 10
+
